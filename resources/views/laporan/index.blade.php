@@ -6,13 +6,13 @@
     <!-- Header & Filter -->
     <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
         <div>
-            <h4 class="fw-bold mb-1 text-dark">Laporan Kas Terpadu</h4>
-            <small class="text-muted">Pantau arus kas Masjid dan Sosial dalam satu tempat</small>
+            <h4 class="fw-bold mb-1 text-dark">Rekap Kas Masjid</h4>
+            <small class="text-muted">Laporan lengkap arus kas masjid</small>
         </div>
         
         <div class="d-flex gap-2 align-items-center flex-wrap">
             <form method="GET" class="d-flex gap-2 align-items-center">
-                <input type="hidden" name="tab" value="{{ $activeTab }}">
+
                 <div class="input-group shadow-sm">
                     <span class="input-group-text bg-white border-end-0"><i class="bi bi-calendar-range"></i></span>
                     <input type="date" name="start_date" class="form-control border-start-0 ps-0" value="{{ $startDate }}" placeholder="Mulai">
@@ -37,21 +37,8 @@
         </div>
     </div>
 
-    <!-- Tabs -->
-    <ul class="nav nav-pills mb-4 gap-2" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a href="{{ route('laporan_kas.index', ['tab' => 'masjid', 'start_date' => $startDate, 'end_date' => $endDate]) }}" 
-               class="nav-link {{ $activeTab == 'masjid' ? 'active shadow-sm' : 'bg-white text-secondary' }} px-4 py-2 fw-bold rounded-pill">
-                <i class="bi bi-mosque me-2"></i> Kas Masjid
-            </a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a href="{{ route('laporan_kas.index', ['tab' => 'sosial', 'start_date' => $startDate, 'end_date' => $endDate]) }}" 
-               class="nav-link {{ $activeTab == 'sosial' ? 'active shadow-sm' : 'bg-white text-secondary' }} px-4 py-2 fw-bold rounded-pill">
-                <i class="bi bi-people me-2"></i> Kas Sosial
-            </a>
-        </li>
-    </ul>
+    <!-- Tabs Removed -->
+
 
     <!-- Summary Cards -->
     <div class="row g-4 mb-4">
@@ -97,7 +84,7 @@
         <div class="col-lg-12">
             <div class="card border-0 shadow-sm">
                 <div class="card-header bg-white py-3">
-                    <h6 class="mb-0 fw-bold">Rincian Transaksi {{ ucfirst($activeTab) }}</h6>
+                    <h6 class="mb-0 fw-bold">Rincian Transaksi</h6>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center mb-0 table-hover">

@@ -41,13 +41,23 @@
         }
 
         /* Glassmorphism Navbar */
-        .navbar-glass {
+        /* .navbar-glass {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
             transition: all 0.3s ease;
+        } */
+
+         .navbar-custom {
+            background: rgba(255, 255, 255, 0.95); /* Slightly more opaque for sticky */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            padding: 1rem 0;
+            transition: var(--transition);
         }
 
         .navbar-brand {
@@ -56,17 +66,24 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 1.5rem;
+            letter-spacing: -0.5px;
         }
+
 
         .nav-link {
             font-weight: 500;
-            color: #475569 !important;
-            transition: color 0.3s ease;
+            color: var(--text-secondary) !important;
+            border-radius: var(--radius-sm);
+            padding: 0.6rem 1.2rem !important;
+            transition: var(--transition);
         }
 
         .nav-link:hover, .nav-link.active {
             color: var(--primary) !important;
+            background: rgba(79, 70, 229, 0.1); /* light primary */
+            transform: translateY(-1px);
         }
+        
 
         /* Hero Section */
         .hero-section {
@@ -157,7 +174,7 @@
         .footer {
             background: #1e293b;
             color: #94a3b8;
-            padding: 4rem 0 2rem;
+            padding: 2.5rem 0 1.5rem;
         }
 
         .footer-title {
@@ -209,7 +226,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('welcome') }}">
                 <i class="bi bi-mosque text-primary"></i>
-                Masjid Nabawi
+                {{ $settings['nama_masjid'] ?? 'Masjid Nabawi' }}
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
                 <span class="navbar-toggler-icon"></span>
@@ -245,7 +262,7 @@
                         <i class="bi bi-check-circle-fill me-2"></i>Terpercaya & Transparan
                     </span>
                     <h1 class="display-4 fw-bold mb-4 text-dark lh-tight">
-                        {{ $settings['hero_title'] ?? 'Wujudkan Amal Jariyah Bersama Masjid Nabawi' }}
+                        {{ $settings['hero_title'] ?? 'Wujudkan Amal Jariyah Bersama ' . ($settings['nama_masjid'] ?? 'Masjid Nabawi') }}
                     </h1>
                     <p class="lead text-secondary mb-5 pe-lg-5">
                        {{ $settings['hero_description'] ?? 'Platform digital pengelolaan keuangan masjid yang transparan. Salurkan donasi Anda dengan mudah, aman, dan barokah untuk kemaslahatan umat.' }}
@@ -258,19 +275,9 @@
                 </div>
                 <div class="col-lg-6 text-center" data-aos="zoom-in" data-aos-delay="200">
                     <div class="position-relative">
-                        <div class="z-1 position-relative p-5 bg-white bg-opacity-50 rounded-circle" style="backdrop-filter: blur(20px);">
-                            <i class="bi bi-mosque display-1 text-primary"></i>
-                        </div>
+
                         <!-- Floating Cards Animation -->
-                        <div class="position-absolute top-0 end-0 bg-white p-3 rounded-4 shadow-lg animate-float" style="width: 180px; animation: float 3s ease-in-out infinite;">
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="bg-success bg-opacity-10 p-2 rounded-circle text-success"><i class="bi bi-arrow-up-right"></i></div>
-                                <div>
-                                    <small class="text-muted d-block" style="font-size: 10px;">Pemasukan</small>
-                                    <span class="fw-bold text-dark">+ Rp 1.5jt</span>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -327,7 +334,7 @@
                     <h5 class="text-primary fw-bold text-uppercase mb-3">Tentang Kami</h5>
                     <h2 class="display-6 fw-bold mb-4 text-dark">{{ $settings['about_title'] ?? 'Mengelola Amanah dengan Profesional & Modern' }}</h2>
                     <p class="text-secondary lead mb-4">
-                        {{ $settings['about_description'] ?? 'Masjid Nabawi hadir dengan sistem manajemen keuangan digital yang memungkinkan seluruh jamaah memantau arus kas secara realtime, transparan, dan akuntabel.' }}
+                        {{ $settings['about_description'] ?? ($settings['nama_masjid'] ?? 'Masjid Nabawi') . ' hadir dengan sistem manajemen keuangan digital yang memungkinkan seluruh jamaah memantau arus kas secara realtime, transparan, dan akuntabel.' }}
                     </p>
                     <div class="row g-4 mb-4">
                         <div class="col-6">
@@ -395,49 +402,48 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer mt-auto" id="kontak">
+    <footer class="footer mt-auto py-4" id="kontak">
         <div class="container">
-            <div class="row g-5 mb-5">
+            <div class="row g-4 mb-4">
                 <div class="col-lg-4">
-                    <a class="d-flex align-items-center gap-2 mb-4 text-decoration-none" href="#">
-                        <i class="bi bi-mosque fs-2 text-white"></i>
-                        <span class="fs-3 fw-bold text-white">Masjid Nabawi</span>
+                    <a class="d-flex align-items-center gap-2 mb-3 text-decoration-none" href="#">
+                        <i class="bi bi-mosque fs-3 text-white"></i>
+                        <span class="fs-5 fw-bold text-white">{{ $settings['nama_masjid'] ?? 'Masjid Nabawi' }}</span>
                     </a>
-                    <p class="mb-4">Membangun peradaban umat melalui masjid yang makmur, transparan, dan modern.</p>
+                    <p class="mb-3 small">{{ $settings['footer_description'] ?? 'Membangun peradaban umat melalui masjid yang makmur, transparan, dan modern.' }}</p>
                     <div class="d-flex">
-                        <a href="{{ $settings['social_facebook'] ?? '#' }}" class="social-link"><i class="bi bi-facebook"></i></a>
-                        <a href="{{ $settings['social_instagram'] ?? '#' }}" class="social-link"><i class="bi bi-instagram"></i></a>
-                        <a href="{{ $settings['social_youtube'] ?? '#' }}" class="social-link"><i class="bi bi-youtube"></i></a>
+                        <a href="{{ $settings['social_facebook'] ?? '#' }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-facebook"></i></a>
+                        <a href="{{ $settings['social_instagram'] ?? '#' }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-instagram"></i></a>
+                        <a href="{{ $settings['social_youtube'] ?? '#' }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <h5 class="footer-title">Navigasi</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-2">
+                    <h6 class="footer-title mb-3 text-white fw-bold">Navigasi</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-1 small">
                         <li><a href="#" class="text-decoration-none text-secondary hover-white">Beranda</a></li>
                         <li><a href="#tentang" class="text-decoration-none text-secondary hover-white">Tentang</a></li>
-
                     </ul>
                 </div>
                 <div class="col-lg-5">
-                    <h5 class="footer-title">Hubungi Kami</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-3">
-                        <li class="d-flex gap-3">
+                    <h6 class="footer-title mb-3 text-white fw-bold">Hubungi Kami</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li class="d-flex gap-2">
                             <i class="bi bi-geo-alt text-primary mt-1"></i>
-                            <span>{{ $settings['contact_address'] ?? 'Jl. Masjid Nabawi No. 123, Komplek Surga Firdaus, Kota Madani, Indonesia' }}</span>
+                            <span>{{ $settings['contact_address'] ?? 'Jl. ' . ($settings['nama_masjid'] ?? 'Masjid Nabawi') . ' No. 123, Komplek Surga Firdaus, Kota Madani, Indonesia' }}</span>
                         </li>
-                        <li class="d-flex gap-3">
+                        <li class="d-flex gap-2">
                             <i class="bi bi-telephone text-primary mt-1"></i>
                             <span>{{ $settings['contact_phone'] ?? '+62 812-3456-7890' }}</span>
                         </li>
-                        <li class="d-flex gap-3">
+                        <li class="d-flex gap-2">
                             <i class="bi bi-envelope text-primary mt-1"></i>
                             <span>{{ $settings['contact_email'] ?? 'info@masjidnabawi.com' }}</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-top border-secondary pt-4 text-center">
-                <p class="mb-0 small">&copy; 2026 Kas Masjid Nabawi. Developed with ❤️ for Ummah.</p>
+            <div class="border-top border-secondary pt-3 text-center">
+                <p class="mb-0 small" style="font-size: 0.75rem;">{!! $settings['footer_copyright'] ?? '&copy; ' . date('Y') . ' Kas ' . ($settings['nama_masjid'] ?? 'Masjid Nabawi') . '. Developed with ❤️ for Ummah.' !!}</p>
             </div>
         </div>
     </footer>

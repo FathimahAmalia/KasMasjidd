@@ -41,21 +41,7 @@ class pemasukanMasjidController extends Controller
             return redirect()->back()->withErrors(['nominal' => 'Nominal harus berupa angka yang valid']);
         }
 
-        // Logic: Jika Sumber Dana adalah 'Lainnya' (bukan opsi standar), masuk ke Kas Sosial
-        $standardSources = ['Infaq', 'Kencleng', 'Donatur', 'Sedekah'];
-        
-        if (!in_array($request->sumber_dana, $standardSources)) {
-            \App\Models\PemasukanSosial::create([
-                'tanggal'     => $request->tanggal,
-                'sumber_dana' => $request->sumber_dana,
-                'keterangan'  => $request->keterangan,
-                'jumlah'      => (int)$nominal, // Note: PemasukanSosial uses 'jumlah', not 'nominal'
-            ]);
-
-            return redirect()->back()->with('success', 'Pemasukan berhasil ditambahkan ke KAS SOSIAL (karena sumber dana Lainnya)');
-        }
-
-        // Jika opsi standar, masuk ke Kas Masjid
+        // Simpan ke Kas Masjid
         PemasukanMasjid::create([
             'tanggal'     => $request->tanggal,
             'sumber_dana' => $request->sumber_dana,

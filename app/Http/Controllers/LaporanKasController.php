@@ -13,8 +13,8 @@ class LaporanKasController extends Controller
 {
     public function index(Request $request)
     {
-        // Default tab is 'masjid'
-        $activeTab = $request->input('tab', 'masjid');
+        // Default tab is 'masjid' (Always local to Masjid now)
+        $activeTab = 'masjid';
         
         // Date filters
         $startDate = $request->input('start_date');
@@ -26,12 +26,7 @@ class LaporanKasController extends Controller
             $endDate = Carbon::now()->endOfMonth()->format('Y-m-d');
         }
 
-        $data = [];
-        if ($activeTab == 'masjid') {
-            $data = $this->getDataMasjid($startDate, $endDate);
-        } else {
-            $data = $this->getDataSosial($startDate, $endDate);
-        }
+        $data = $this->getDataMasjid($startDate, $endDate);
 
         return view('laporan.index', array_merge($data, [
             'activeTab' => $activeTab,

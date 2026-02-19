@@ -81,14 +81,7 @@
                             <input type="text" id="nominal" name="nominal" class="form-control fw-bold text-danger" placeholder="0" required>
                         </div>
                         
-                        <div class="mb-3">
-                            <label class="form-label text-muted small fw-bold">Ambil Dana Dari</label>
-                            <select name="sumber_dana" class="form-select mb-2" required>
-                                <option value="Kas Masjid" selected>Kas Masjid</option>
-                                <option value="Kas Sosial">Kas Sosial</option>
-                            </select>
-                            <small class="text-xs text-muted">*Pilih <strong>Kas Sosial</strong> untuk pengeluaran santunan/bantuan.</small>
-                        </div>
+
                         
                         <div class="mb-4">
                             <label class="form-label text-muted small fw-bold">Keterangan</label>

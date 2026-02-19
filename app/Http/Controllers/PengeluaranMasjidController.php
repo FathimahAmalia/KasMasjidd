@@ -28,7 +28,6 @@ public function store(Request $request)
         'jenis_pengeluaran' => 'required|string',
         'nominal' => 'required|string',
         'keterangan' => 'nullable|string',
-        'sumber_dana' => 'required|string', // Validasi input baru
     ]);
 
     // Remove all non-numeric characters from nominal
@@ -39,21 +38,7 @@ public function store(Request $request)
         return redirect()->back()->withErrors(['nominal' => 'Nominal harus berupa angka yang valid']);
     }
 
-    // LIST LOGIC: Jika Sumber Dana = 'Kas Sosial', simpan ke tabel pengeluaran_sosial
-    if ($request->sumber_dana == 'Kas Sosial') {
-        \App\Models\PengeluaranSosial::create([
-            'tanggal' => $request->tanggal,
-            'jenis_pengeluaran' => $request->jenis_pengeluaran,
-            'nominal' => (int)$nominal, 
-            'keterangan' => $request->keterangan,
-        ]);
-
-        return redirect()
-            ->route('pengeluaran_masjid.index')
-            ->with('success', 'Pengeluaran berhasil ditambahkan ke KAS SOSIAL');
-    }
-
-    // Default: Simpan ke Kas Masjid
+    // Simpan ke Kas Masjid
     PengeluaranMasjid::create([
         'tanggal' => $request->tanggal,
         'jenis_pengeluaran' => $request->jenis_pengeluaran,

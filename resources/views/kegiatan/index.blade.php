@@ -78,7 +78,7 @@
         .footer {
             background: #1e293b;
             color: #94a3b8;
-            padding: 4rem 0 2rem;
+            padding: 2.5rem 0 1.5rem;
         }
 
         .footer-title {
@@ -182,49 +182,49 @@
 
     <!-- Footer -->
     <!-- Footer -->
-    <footer class="footer mt-auto">
+    <footer class="footer mt-auto py-4">
         <div class="container">
-            <div class="row g-5 mb-5">
+            <div class="row g-4 mb-4">
                 <div class="col-lg-4">
-                    <a class="d-flex align-items-center gap-2 mb-4 text-decoration-none" href="#">
-                        <i class="bi bi-mosque fs-2 text-white"></i>
-                        <span class="fs-3 fw-bold text-white">Masjid Nabawi</span>
+                    <a class="d-flex align-items-center gap-2 mb-3 text-decoration-none" href="#">
+                        <i class="bi bi-mosque fs-3 text-white"></i>
+                        <span class="fs-5 fw-bold text-white">Masjid Nabawi</span>
                     </a>
-                    <p class="mb-4">Membangun peradaban umat melalui masjid yang makmur, transparan, dan modern.</p>
+                    <p class="mb-3 small">Membangun peradaban umat melalui masjid yang makmur, transparan, dan modern.</p>
                     <div class="d-flex">
-                        <a href="{{ $settings['social_facebook'] ?? '#' }}" class="social-link"><i class="bi bi-facebook"></i></a>
-                        <a href="{{ $settings['social_instagram'] ?? '#' }}" class="social-link"><i class="bi bi-instagram"></i></a>
-                        <a href="{{ $settings['social_youtube'] ?? '#' }}" class="social-link"><i class="bi bi-youtube"></i></a>
+                        <a href="{{ $settings['social_facebook'] ?? '#' }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-facebook"></i></a>
+                        <a href="{{ $settings['social_instagram'] ?? '#' }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-instagram"></i></a>
+                        <a href="{{ $settings['social_youtube'] ?? '#' }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <h5 class="footer-title">Navigasi</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-2">
+                    <h6 class="footer-title mb-3 text-white fw-bold">Navigasi</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-1 small">
                         <li><a href="{{ route('welcome') }}" class="text-decoration-none text-secondary hover-white">Beranda</a></li>
                         <li><a href="{{ route('welcome') }}#tentang" class="text-decoration-none text-secondary hover-white">Tentang</a></li>
                         <li><a href="{{ route('login') }}" class="text-decoration-none text-secondary hover-white">Login Admin</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-5">
-                    <h5 class="footer-title">Hubungi Kami</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-3">
-                        <li class="d-flex gap-3">
+                    <h6 class="footer-title mb-3 text-white fw-bold">Hubungi Kami</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li class="d-flex gap-2">
                             <i class="bi bi-geo-alt text-primary mt-1"></i>
                             <span>{{ $settings['contact_address'] ?? 'Jl. Masjid Nabawi No. 123, Komplek Surga Firdaus, Kota Madani, Indonesia' }}</span>
                         </li>
-                        <li class="d-flex gap-3">
+                        <li class="d-flex gap-2">
                             <i class="bi bi-telephone text-primary mt-1"></i>
                             <span>{{ $settings['contact_phone'] ?? '+62 812-3456-7890' }}</span>
                         </li>
-                        <li class="d-flex gap-3">
+                        <li class="d-flex gap-2">
                             <i class="bi bi-envelope text-primary mt-1"></i>
                             <span>{{ $settings['contact_email'] ?? 'info@masjidnabawi.com' }}</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-top border-secondary pt-4 text-center">
-                <p class="mb-0 small">&copy; 2026 Kas Masjid Nabawi. Developed with ❤️ for Ummah.</p>
+            <div class="border-top border-secondary pt-3 text-center">
+                <p class="mb-0 small" style="font-size: 0.75rem;">&copy; 2026 Kas Masjid Nabawi. Developed with ❤️ for Ummah.</p>
             </div>
         </div>
     </footer>

@@ -10,7 +10,10 @@ class LandingSettingController extends Controller
     public function index()
     {
         $settings = \App\Models\LandingSetting::all()->pluck('value', 'key');
-        return view('admin.settings.index', compact('settings'));
+        // Activities for the 3rd card
+        $activities = \App\Models\RoutineActivity::all();
+        
+        return view('admin.settings.index', compact('settings', 'activities'));
     }
 
     public function update(Request $request)
@@ -18,10 +21,10 @@ class LandingSettingController extends Controller
         $inputs = $request->except(['_token', '_method']);
 
         foreach ($inputs as $key => $value) {
-            $setting = \App\Models\LandingSetting::where('key', $key)->first();
-            if ($setting) {
-                $setting->update(['value' => $value]);
-            }
+            \App\Models\LandingSetting::updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            );
         }
 
         if ($request->hasFile('about_image')) {

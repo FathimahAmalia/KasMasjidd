@@ -572,7 +572,7 @@
                 <i class="bi bi-mosque"></i>
             </div>
             <div class="sidebar-title">
-                <h6>Masjid Nabawi</h6>
+                <h6>{{ \App\Models\LandingSetting::where('key', 'nama_masjid')->value('value') ?? 'Kas Masjid' }}</h6>
                 <div class="sidebar-subtitle">Kelola Kas Masjid</div>
             </div>
         </div>
@@ -650,6 +650,8 @@
                 </div>
             </li>
             @endif
+
+
 
             <li class="nav-item mt-3">
                 <a href="{{ route('profile.edit') }}"

@@ -142,8 +142,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings', [App\Http\Controllers\Admin\LandingSettingController::class, 'index'])->name('admin.settings.index');
     Route::put('/settings', [App\Http\Controllers\Admin\LandingSettingController::class, 'update'])->name('admin.settings.update');
 
+    // Information Components
+    Route::resource('information-components', App\Http\Controllers\Admin\InformationComponentController::class);
+    
+    // Contact Items
+    Route::resource('contact-items', App\Http\Controllers\Admin\ContactItemController::class);
+
     // Activities
     Route::resource('activities', App\Http\Controllers\Admin\ActivityController::class);
+    Route::resource('routine-activities', App\Http\Controllers\Admin\RoutineActivityController::class);
 });
 
 // Laporan Kas Unified
