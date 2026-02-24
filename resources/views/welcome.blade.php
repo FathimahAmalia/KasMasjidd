@@ -288,34 +288,34 @@
     <section class="py-5 position-relative" style="margin-top: -80px; z-index: 10;">
         <div class="container">
             <div class="row g-4">
-                <!-- Saldo Masjid -->
+                <!-- Pemasukan Masjid -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-card">
+                    <div class="stat-card border-success border-opacity-25">
+                        <div class="icon-wrapper bg-success bg-opacity-10 text-success">
+                            <i class="bi bi-arrow-down-left-circle"></i>
+                        </div>
+                        <p class="text-secondary fw-semibold mb-1">Pemasukan Kas Masjid</p>
+                        <h2 class="fw-bold mb-0 text-success">Rp {{ number_format($totalPemasukanMasjid, 0, ',', '.') }}</h2>
+                    </div>
+                </div>
+                <!-- Pengeluaran Masjid -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card border-danger border-opacity-25">
+                        <div class="icon-wrapper bg-danger bg-opacity-10 text-danger">
+                            <i class="bi bi-arrow-up-right-circle"></i>
+                        </div>
+                        <p class="text-secondary fw-semibold mb-1">Pengeluaran Kas Masjid</p>
+                        <h2 class="fw-bold mb-0 text-danger">Rp {{ number_format($totalPengeluaranMasjid, 0, ',', '.') }}</h2>
+                    </div>
+                </div>
+                <!-- Total Saldo Masjid -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card border-primary border-opacity-25">
                         <div class="icon-wrapper bg-primary bg-opacity-10 text-primary">
                             <i class="bi bi-wallet2"></i>
                         </div>
-                        <p class="text-secondary fw-semibold mb-1">Saldo Kas Masjid</p>
-                        <h2 class="fw-bold mb-0">Rp {{ number_format($saldoMasjid, 0, ',', '.') }}</h2>
-                    </div>
-                </div>
-                <!-- Saldo Sosial -->
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-card">
-                        <div class="icon-wrapper bg-success bg-opacity-10 text-success">
-                            <i class="bi bi-heart"></i>
-                        </div>
-                        <p class="text-secondary fw-semibold mb-1">Saldo Kas Sosial</p>
-                        <h2 class="fw-bold mb-0">Rp {{ number_format($saldoSosial, 0, ',', '.') }}</h2>
-                    </div>
-                </div>
-                <!-- Total Pemasukan Bulan Ini -->
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-card">
-                        <div class="icon-wrapper bg-info bg-opacity-10 text-info">
-                            <i class="bi bi-graph-up-arrow"></i>
-                        </div>
-                        <p class="text-secondary fw-semibold mb-1">Total Pemasukan Bulan Ini</p>
-                        <h2 class="fw-bold mb-0">Rp {{ number_format($pemasukanBulanIni, 0, ',', '.') }}</h2>
+                        <p class="text-secondary fw-semibold mb-1">Total Saldo Masjid</p>
+                        <h2 class="fw-bold mb-0 text-primary">Rp {{ number_format($saldoMasjid, 0, ',', '.') }}</h2>
                     </div>
                 </div>
             </div>

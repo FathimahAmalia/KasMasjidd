@@ -77,65 +77,68 @@
 </div>
 
  <div class="row g-4 mb-4">
-     <div class="col-md-4">
-        <div class="card h-100 border-0">
-            <div class="card-body p-4">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-3 p-3 me-3" style="width: 60px; height: 60px;">
-                        <i class="bi bi-mosque fs-3"></i>
-                    </div>
-                    <div class="flex-grow-1">
-                        <small class="text-muted text-uppercase fw-bold mb-1 d-block" style="font-size: 0.75rem;">Saldo Masjid</small>
-                        <h3 class="fw-bold mb-0 text-dark" style="font-size: 1.5rem;">Rp {{ number_format($saldoMasjid, 0, ',', '.') }}</h3>
-                        <small class="text-success fw-medium" style="font-size: 0.8rem;">
-                            <i class="bi bi-arrow-up-circle me-1"></i>+12.5% dari bulan lalu
-                        </small>
-                    </div>
-                </div>
-                <div class="progress" style="height: 8px;">
-                    <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 75%;"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-     <div class="col-md-4">
-        <div class="card h-100 border-0">
+    <!-- Pemasukan Masjid -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
             <div class="card-body p-4">
                 <div class="d-flex align-items-center mb-3">
                     <div class="icon-box bg-success bg-opacity-10 text-success rounded-3 p-3 me-3" style="width: 60px; height: 60px;">
-                        <i class="bi bi-people fs-3"></i>
+                        <i class="bi bi-arrow-down-left-circle fs-3"></i>
                     </div>
                     <div class="flex-grow-1">
-                        <small class="text-muted text-uppercase fw-bold mb-1 d-block" style="font-size: 0.75rem;">Saldo Sosial</small>
-                        <h3 class="fw-bold mb-0 text-dark" style="font-size: 1.5rem;">Rp {{ number_format($saldoSosial, 0, ',', '.') }}</h3>
+                        <small class="text-muted text-uppercase fw-bold mb-1 d-block" style="font-size: 0.75rem;">Pemasukan Kas Masjid</small>
+                        <h3 class="fw-bold mb-0 text-dark" style="font-size: 1.5rem;">Rp {{ number_format($totalPemasukanMasjid, 0, ',', '.') }}</h3>
                         <small class="text-success fw-medium" style="font-size: 0.8rem;">
-                            <i class="bi bi-arrow-up-circle me-1"></i>+8.2% dari bulan lalu
+                            Total seluruh pemasukan
                         </small>
                     </div>
                 </div>
                 <div class="progress" style="height: 8px;">
-                    <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 60%;"></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;"></div>
                 </div>
             </div>
         </div>
     </div>
 
-     <div class="col-md-4">
-        <div class="card h-100 border-0">
+    <!-- Pengeluaran Masjid -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
             <div class="card-body p-4">
                 <div class="d-flex align-items-center mb-3">
-                    <div class="icon-box bg-info bg-opacity-10 text-info rounded-3 p-3 me-3" style="width: 60px; height: 60px;">
-                        <i class="bi bi-wallet2 fs-3"></i>
+                    <div class="icon-box bg-danger bg-opacity-10 text-danger rounded-3 p-3 me-3" style="width: 60px; height: 60px;">
+                        <i class="bi bi-arrow-up-right-circle fs-3"></i>
                     </div>
                     <div class="flex-grow-1">
-                        <small class="text-muted text-uppercase fw-bold mb-1 d-block" style="font-size: 0.75rem;">Total Aset</small>
-                        <h3 class="fw-bold mb-0 text-dark" style="font-size: 1.5rem;">Rp {{ number_format($totalAset, 0, ',', '.') }}</h3>
-                        <small class="text-info fw-medium" style="font-size: 0.8rem;">Gabungan seluruh kas</small>
+                        <small class="text-muted text-uppercase fw-bold mb-1 d-block" style="font-size: 0.75rem;">Pengeluaran Kas Masjid</small>
+                        <h3 class="fw-bold mb-0 text-dark" style="font-size: 1.5rem;">Rp {{ number_format($totalPengeluaranMasjid, 0, ',', '.') }}</h3>
+                        <small class="text-danger fw-medium" style="font-size: 0.8rem;">
+                            Total seluruh pengeluaran
+                        </small>
                     </div>
                 </div>
                 <div class="progress" style="height: 8px;">
-                    <div class="progress-bar bg-gradient-info" role="progressbar" style="width: 85%;"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Aset -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-3 p-3 me-3" style="width: 60px; height: 60px;">
+                        <i class="bi bi-wallet2 fs-3"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <small class="text-muted text-uppercase fw-bold mb-1 d-block" style="font-size: 0.75rem;">Total Aset (Kas Masjid)</small>
+                        <h3 class="fw-bold mb-0 text-dark" style="font-size: 1.5rem;">Rp {{ number_format($totalAset, 0, ',', '.') }}</h3>
+                        <small class="text-primary fw-medium" style="font-size: 0.8rem;">Saldo bersih saat ini</small>
+                    </div>
+                </div>
+                <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%;"></div>
                 </div>
             </div>
         </div>

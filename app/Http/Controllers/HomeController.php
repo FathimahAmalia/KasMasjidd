@@ -29,18 +29,14 @@ class HomeController extends Controller
     public function index()
     {
         // 1. Hitung Saldo Digital Masjid
-        $masjidMasuk = PemasukanMasjid::sum('nominal');
-        $masjidKeluar = PengeluaranMasjid::sum('nominal');
-        $saldoMasjid = $masjidMasuk - $masjidKeluar;
+        $totalPemasukanMasjid = PemasukanMasjid::sum('nominal');
+        $totalPengeluaranMasjid = PengeluaranMasjid::sum('nominal');
+        
+        // 2. Hitung Saldo Masjid (Net)
+        $saldoMasjid = $totalPemasukanMasjid - $totalPengeluaranMasjid;
 
-        // 2. Hitung Saldo Sosial
-        // Note: PemasukanSosial uses 'jumlah', PengeluaranSosial uses 'nominal' based on previous checks
-        $sosialMasuk = PemasukanSosial::sum('jumlah'); 
-        $sosialKeluar = PengeluaranSosial::sum('nominal');
-        $saldoSosial = $sosialMasuk - $sosialKeluar;
-
-        // 3. Total Aset
-        $totalAset = $saldoMasjid + $saldoSosial;
+        // 3. Total Aset (Sama dengan Saldo Masjid sekarang)
+        $totalAset = $saldoMasjid;
 
         // 4. Transaksi Terakhir (Gabungan 4 Tabel)
         // Kita ambil 5 terakhir dari masing-masing, gabung, sort, ambil 5.
@@ -60,24 +56,8 @@ class HomeController extends Controller
             return $i;
         });
 
-        $pemasukanSosial = PemasukanSosial::latest('tanggal')->take(5)->get()->map(function($i){
-            $i->jenis_transaksi = 'Pemasukan Sosial';
-            $i->tipe = 'masuk';
-            $i->nominal_display = $i->jumlah;
-            return $i;
-        });
-
-        $pengeluaranSosial = PengeluaranSosial::latest('tanggal')->take(5)->get()->map(function($i){
-            $i->jenis_transaksi = 'Pengeluaran Sosial';
-            $i->tipe = 'keluar';
-            $i->nominal_display = $i->nominal;
-            return $i;
-        });
-
         $recentTransactions = $pemasukanMasjid
             ->merge($pengeluaranMasjid)
-            ->merge($pemasukanSosial)
-            ->merge($pengeluaranSosial)
             ->sortByDesc('tanggal')
             ->take(5);
 
@@ -92,15 +72,9 @@ class HomeController extends Controller
             
             $monthlyIncome = PemasukanMasjid::whereYear('tanggal', $month->year)
                 ->whereMonth('tanggal', $month->month)
-                ->sum('nominal') + 
-                PemasukanSosial::whereYear('tanggal', $month->year)
-                ->whereMonth('tanggal', $month->month)
-                ->sum('jumlah');
+                ->sum('nominal');
 
             $monthlyExpense = PengeluaranMasjid::whereYear('tanggal', $month->year)
-                ->whereMonth('tanggal', $month->month)
-                ->sum('nominal') + 
-                PengeluaranSosial::whereYear('tanggal', $month->year)
                 ->whereMonth('tanggal', $month->month)
                 ->sum('nominal');
 
@@ -109,8 +83,9 @@ class HomeController extends Controller
         }
 
         return view('home', compact(
+            'totalPemasukanMasjid',
+            'totalPengeluaranMasjid',
             'saldoMasjid', 
-            'saldoSosial', 
             'totalAset', 
             'recentTransactions',
             'months',
