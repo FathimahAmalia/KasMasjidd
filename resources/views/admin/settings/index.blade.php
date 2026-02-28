@@ -270,15 +270,15 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Facebook URL</label>
-                                            <input type="url" name="social_facebook" class="form-control" value="{{ $settings['social_facebook'] ?? '#' }}">
+                                            <input type="text" name="social_facebook" class="form-control" value="{{ $settings['social_facebook'] ?? '' }}" placeholder="https://facebook.com/...">
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Instagram URL</label>
-                                            <input type="url" name="social_instagram" class="form-control" value="{{ $settings['social_instagram'] ?? '#' }}">
+                                            <input type="text" name="social_instagram" class="form-control" value="{{ $settings['social_instagram'] ?? '' }}" placeholder="https://instagram.com/...">
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Youtube URL</label>
-                                            <input type="url" name="social_youtube" class="form-control" value="{{ $settings['social_youtube'] ?? '#' }}">
+                                            <input type="text" name="social_youtube" class="form-control" value="{{ $settings['social_youtube'] ?? '' }}" placeholder="https://youtube.com/...">
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Deskripsi Footer</label>

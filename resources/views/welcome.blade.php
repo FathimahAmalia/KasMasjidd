@@ -361,45 +361,6 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="kegiatan" class="py-5 bg-light position-relative overflow-hidden">
-        <div class="container position-relative z-1">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h5 class="text-primary fw-bold text-uppercase">Galeri Kegiatan</h5>
-                <h2 class="display-6 fw-bold text-dark">Kegiatan Memakmurkan Masjid</h2>
-                <p class="text-secondary mt-3">Berbagai aktivitas keagamaan dan sosial untuk umat</p>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                @foreach($activities as $index => $activity)
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ 100 * ($index + 1) }}">
-                    <div class="card border-0 rounded-4 shadow-sm h-100 overflow-hidden group-hover">
-                        <div class="position-relative overflow-hidden">
-                            <img src="{{ Str::startsWith($activity->image, 'http') ? $activity->image : asset('storage/' . $activity->image) }}" class="card-img-top object-fit-cover" alt="{{ $activity->title }}" style="height: 250px; transition: transform 0.5s ease;">
-                            <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient-dark text-white" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
-                                <span class="badge bg-primary mb-2">{{ $activity->category }}</span>
-                                <h5 class="fw-bold mb-0 text-white">{{ $activity->title }}</h5>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <p class="text-muted small mb-0">{{ Str::limit($activity->description, 100) }}</p>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            
-            <div class="text-center mt-5">
-                <a href="{{ route('kegiatan.index') }}" class="btn btn-outline-primary rounded-pill px-4 fw-bold">Lihat Semua Kegiatan <i class="bi bi-arrow-right ms-2"></i></a>
-            </div>
-        </div>
-        
-        <style>
-            .group-hover:hover .card-img-top {
-                transform: scale(1.1);
-            }
-        </style>
-    </section>
 
     <!-- Footer -->
     <footer class="footer mt-auto py-4" id="kontak">
@@ -412,9 +373,15 @@
                     </a>
                     <p class="mb-3 small">{{ $settings['footer_description'] ?? 'Membangun peradaban umat melalui masjid yang makmur, transparan, dan modern.' }}</p>
                     <div class="d-flex">
-                        <a href="{{ $settings['social_facebook'] ?? '#' }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-facebook"></i></a>
-                        <a href="{{ $settings['social_instagram'] ?? '#' }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-instagram"></i></a>
-                        <a href="{{ $settings['social_youtube'] ?? '#' }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-youtube"></i></a>
+                        @if(!empty($settings['social_facebook']) && $settings['social_facebook'] !== '#')
+                            <a href="{{ $settings['social_facebook'] }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-facebook"></i></a>
+                        @endif
+                        @if(!empty($settings['social_instagram']) && $settings['social_instagram'] !== '#')
+                            <a href="{{ $settings['social_instagram'] }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-instagram"></i></a>
+                        @endif
+                        @if(!empty($settings['social_youtube']) && $settings['social_youtube'] !== '#')
+                            <a href="{{ $settings['social_youtube'] }}" class="social-link shadow-sm" style="width: 32px; height: 32px; font-size: 0.875rem;"><i class="bi bi-youtube"></i></a>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-2 offset-lg-1">

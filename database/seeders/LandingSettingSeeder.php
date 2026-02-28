@@ -76,20 +76,19 @@ class LandingSettingSeeder extends Seeder
             // Social Media
             [
                 'key' => 'social_facebook',
-                'value' => '#',
+                'value' => '',
                 'type' => 'text',
                 'label' => 'Link Facebook',
             ],
             [
                 'key' => 'social_instagram',
-                'value' => '#',
+                'value' => '',
                 'type' => 'text',
                 'label' => 'Link Instagram',
             ],
-            // Link Youtube
             [
                 'key' => 'social_youtube',
-                'value' => '#',
+                'value' => '',
                 'type' => 'text',
                 'label' => 'Link Youtube',
             ],
