@@ -52,7 +52,7 @@ class ProfileController extends Controller
 
         // Update user
         $user->update($validated);
-
+        
         return redirect()->route('profile.edit')->with('success', 'Profil berhasil diperbarui!');
     }
 }
