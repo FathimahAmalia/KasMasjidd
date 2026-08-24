@@ -4,26 +4,36 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
 
     <title>
         Struktur {{ $settings['nama_masjid'] ?? 'Masjid' }}
     </title>
 
+
     {{-- Bootstrap --}}
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
+
 
     {{-- Bootstrap Icons --}}
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-        rel="stylesheet">
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
 
-    {{-- Google Fonts --}}
+
+    {{-- Google Font --}}
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
 
     <style>
@@ -33,23 +43,18 @@
         ========================================================= */
 
         :root {
+
             --primary: #4f46e5;
-            --primary-dark: #3730a3;
             --primary-soft: #eef2ff;
 
-            --dark: #0f172a;
+            --dark: #111827;
             --text: #334155;
             --muted: #64748b;
 
-            --white: #ffffff;
             --background: #f8fafc;
 
-            --line: #cbd5e1;
-            --line-dark: #94a3b8;
+            --border: #e5e7eb;
 
-            --success: #10b981;
-
-            --card-radius: 20px;
         }
 
 
@@ -61,35 +66,32 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             margin: 0;
+
             min-height: 100vh;
 
             background:
-                radial-gradient(
-                    circle at 5% 5%,
-                    rgba(79, 70, 229, .08),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 95% 20%,
-                    rgba(99, 102, 241, .06),
-                    transparent 30%
-                ),
                 #f8fafc;
 
-            color: var(--dark);
+            color:
+                var(--dark);
 
             font-family:
                 'Plus Jakarta Sans',
                 sans-serif;
 
             overflow-x: hidden;
+
         }
+
 
         h1,
         h2,
@@ -97,7 +99,11 @@
         h4,
         h5,
         h6 {
-            font-family: 'Outfit', sans-serif;
+
+            font-family:
+                'Outfit',
+                sans-serif;
+
         }
 
 
@@ -106,78 +112,111 @@
         ========================================================= */
 
         .navbar-public {
-            background: rgba(255, 255, 255, .90);
 
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            background:
+                rgba(255,255,255,.96);
 
             border-bottom:
-                1px solid rgba(226, 232, 240, .85);
+                1px solid #edf0f4;
 
             box-shadow:
-                0 8px 30px rgba(15, 23, 42, .05);
+                0 2px 15px rgba(15,23,42,.035);
 
-            transition: .3s ease;
+            backdrop-filter:
+                blur(15px);
+
+            -webkit-backdrop-filter:
+                blur(15px);
+
         }
+
 
         .navbar-brand {
-            font-family: 'Outfit', sans-serif;
 
-            font-weight: 800;
+            font-family:
+                'Outfit',
+                sans-serif;
 
-            color: var(--dark);
+            font-weight:
+                800;
 
-            letter-spacing: -.3px;
+            font-size:
+                15px;
+
+            color:
+                #1e293b;
+
         }
+
 
         .navbar-brand i {
-            color: var(--primary);
+
+            color:
+                var(--primary);
+
         }
+
 
         .nav-link {
-            color: #64748b !important;
 
-            font-weight: 600;
+            color:
+                #64748b !important;
+
+            font-size:
+                12px;
+
+            font-weight:
+                600;
 
             padding:
-                9px 15px !important;
+                9px 13px !important;
 
-            border-radius: 12px;
+            border-radius:
+                10px;
 
             transition:
-                color .25s ease,
-                background .25s ease,
-                transform .25s ease;
+                .2s ease;
+
         }
+
 
         .nav-link:hover {
-            color: var(--primary) !important;
+
+            color:
+                var(--primary) !important;
 
             background:
-                rgba(79, 70, 229, .07);
+                #f1f5f9;
 
-            transform: translateY(-1px);
         }
 
+
         .nav-link.active {
-            color: var(--primary) !important;
+
+            color:
+                var(--primary) !important;
 
             background:
-                rgba(79, 70, 229, .09);
+                #eef2ff;
+
         }
 
 
         /* =========================================================
-           MAIN SECTION
+           MAIN
         ========================================================= */
 
         .structure-section {
-            position: relative;
 
-            padding-top: 145px;
-            padding-bottom: 100px;
+            min-height:
+                100vh;
 
-            min-height: 100vh;
+            padding-top:
+                105px;
+
+            padding-bottom:
+                90px;
+
         }
 
 
@@ -186,622 +225,245 @@
         ========================================================= */
 
         .structure-header {
-            position: relative;
 
-            max-width: 780px;
+            text-align:
+                center;
 
-            margin: 0 auto;
-
-            text-align: center;
-        }
-
-        .section-label {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 8px;
-
-            padding:
-                8px 16px;
-
-            background:
-                rgba(79, 70, 229, .08);
-
-            border:
-                1px solid rgba(79, 70, 229, .10);
-
-            color:
-                var(--primary);
-
-            border-radius:
-                999px;
-
-            font-size:
-                11px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                1.5px;
-
-            text-transform:
-                uppercase;
-
-            box-shadow:
-                0 5px 20px rgba(79, 70, 229, .05);
-        }
-
-        .section-label i {
-            font-size: 14px;
-        }
-
-        .section-title {
-            margin-top: 18px;
-            margin-bottom: 12px;
-
-            font-size:
-                clamp(2.2rem, 4vw, 3.4rem);
-
-            line-height: 1.05;
-
-            font-weight: 800;
-
-            letter-spacing: -1.2px;
-
-            color: var(--dark);
-        }
-
-        .section-title span {
-            color: var(--primary);
-        }
-
-        .section-description {
-            max-width: 680px;
+            max-width:
+                720px;
 
             margin:
                 0 auto;
 
-            color:
-                var(--muted);
-
-            font-size:
-                14px;
-
-            line-height:
-                1.8;
         }
 
 
-        /* =========================================================
-           ORGANIZATION AREA
-        ========================================================= */
+        .section-label {
 
-        .organization-wrapper {
-            position: relative;
+            display:
+                inline-flex;
 
-            margin-top: 65px;
-        }
+            align-items:
+                center;
 
-        .organization-tree {
-            width: 100%;
-
-            overflow-x: auto;
-
-            overflow-y: visible;
+            gap:
+                6px;
 
             padding:
-                25px 30px 110px;
-
-            scrollbar-width:
-                thin;
-
-            scrollbar-color:
-                #cbd5e1 transparent;
-        }
-
-        .organization-tree::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .organization-tree::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .organization-tree::-webkit-scrollbar-thumb {
-            background:
-                #cbd5e1;
-
-            border-radius:
-                999px;
-        }
-
-
-        /* =========================================================
-           ROOT / KETUA
-        ========================================================= */
-
-        .tree-root {
-            position: relative;
-
-            display: flex;
-
-            justify-content: center;
-
-            width: 100%;
-
-            margin-bottom: 90px;
-        }
-
-        /*
-         * Garis vertikal dari Ketua
-         */
-        .tree-root::after {
-            content: "";
-
-            position: absolute;
-
-            left: 50%;
-
-            bottom: -90px;
-
-            width: 2px;
-
-            height: 90px;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    var(--primary),
-                    var(--line)
-                );
-
-            transform:
-                translateX(-50%);
-
-            z-index: 1;
-        }
-
-
-        /* =========================================================
-           LEVEL CHILDREN
-        ========================================================= */
-
-        .children-wrapper {
-            position: relative;
-
-            width: 100%;
-        }
-
-        /*
-         * Garis horizontal utama
-         */
-        .children-wrapper.multiple::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: 12.5%;
-            right: 12.5%;
-
-            height: 2px;
-
-            background:
-                var(--line);
-
-            z-index: 1;
-        }
-
-
-        /*
-         * GRID
-         */
-        .tree-level {
-            position: relative;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, minmax(220px, 240px));
-
-            justify-content: center;
-
-            column-gap: 38px;
-
-            row-gap: 85px;
-
-            padding-top: 55px;
-        }
-
-
-        /* =========================================================
-           CHILD ITEM
-        ========================================================= */
-
-        .child-item {
-            position: relative;
-
-            display: flex;
-
-            justify-content: center;
-
-            min-width: 0;
-        }
-
-
-        /*
-         * Garis vertikal menuju child
-         */
-        .child-item::before {
-            content: "";
-
-            position: absolute;
-
-            top: -55px;
-
-            left: 50%;
-
-            width: 2px;
-
-            height: 55px;
-
-            background:
-                var(--line);
-
-            transform:
-                translateX(-50%);
-
-            z-index: 1;
-        }
-
-
-        /*
-         * Titik koneksi
-         */
-        .child-item::after {
-            content: "";
-
-            position: absolute;
-
-            top: -59px;
-
-            left: 50%;
-
-            width: 10px;
-
-            height: 10px;
-
-            background:
-                var(--white);
-
-            border:
-                2px solid var(--line-dark);
-
-            border-radius:
-                50%;
-
-            transform:
-                translateX(-50%);
-
-            z-index: 3;
-        }
-
-
-        /* =========================================================
-           TREE CARD
-        ========================================================= */
-
-        .tree-node {
-            position: relative;
-
-            width: 230px;
-
-            min-width: 230px;
-
-            overflow: hidden;
-
-            background:
-                rgba(255, 255, 255, .96);
-
-            border:
-                1px solid #e2e8f0;
-
-            border-radius:
-                var(--card-radius);
-
-            box-shadow:
-                0 10px 30px
-                rgba(15, 23, 42, .06);
-
-            transition:
-                transform .3s ease,
-                box-shadow .3s ease,
-                border-color .3s ease;
-
-            z-index: 2;
-        }
-
-        .tree-node::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: 0;
-            right: 0;
-
-            height: 4px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--primary),
-                    #818cf8
-                );
-
-            opacity: .85;
-        }
-
-        .tree-node:hover {
-            transform:
-                translateY(-8px);
-
-            border-color:
-                rgba(79, 70, 229, .20);
-
-            box-shadow:
-                0 20px 45px
-                rgba(79, 70, 229, .12);
-        }
-
-
-        /* =========================================================
-           PHOTO
-        ========================================================= */
-
-        .tree-photo {
-            display: block;
-
-            width: 100%;
-
-            height: 190px;
-
-            object-fit: cover;
+                7px 13px;
 
             background:
                 #eef2ff;
-        }
-
-        .tree-photo-placeholder {
-            width: 100%;
-
-            height: 190px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #eef2ff,
-                    #e0e7ff
-                );
 
             color:
-                var(--primary);
-
-            font-size:
-                55px;
-        }
-
-
-        /* =========================================================
-           NODE CONTENT
-        ========================================================= */
-
-        .node-content {
-            padding:
-                17px 15px 18px;
-
-            text-align:
-                center;
-        }
-
-        .node-position {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 6px;
-
-            max-width: 100%;
-
-            padding:
-                6px 11px;
-
-            background:
-                var(--primary-soft);
-
-            color:
-                var(--primary);
+                #4f46e5;
 
             border-radius:
                 999px;
 
             font-size:
-                9px;
+                10px;
 
             font-weight:
                 800;
 
             letter-spacing:
-                .4px;
+                .8px;
 
             text-transform:
                 uppercase;
 
-            margin-bottom:
-                10px;
         }
 
-        .node-position i {
-            font-size:
-                10px;
-        }
 
-        .node-name {
+        .section-title {
+
             margin:
-                0 0 6px;
-
-            color:
-                var(--dark);
+                14px 0 8px;
 
             font-size:
-                17px;
+                clamp(28px, 4vw, 42px);
 
             font-weight:
                 800;
 
-            line-height:
-                1.25;
+            letter-spacing:
+                -.8px;
+
+            color:
+                #111827;
+
         }
 
-        .node-description {
+
+        .section-title span {
+
+            color:
+                var(--primary);
+
+        }
+
+
+        .section-description {
+
             margin:
-                0;
+                0 auto;
+
+            max-width:
+                600px;
 
             color:
                 #94a3b8;
 
             font-size:
-                10px;
+                13px;
 
             line-height:
-                1.55;
+                1.7;
+
         }
 
 
         /* =========================================================
-           KETUA CARD SPECIAL
+           ORGANIZATION
+        ========================================================= */
+
+        .organization-tree {
+
+            margin-top:
+                55px;
+
+            width:
+                100%;
+
+            overflow-x:
+                auto;
+
+            padding:
+                10px 25px 50px;
+
+        }
+
+
+        /*
+         * Wrapper supaya seluruh struktur tetap berada
+         * di tengah halaman.
+         */
+
+        .organization-content {
+
+            width:
+                max-content;
+
+            min-width:
+                100%;
+
+        }
+
+
+        /* =========================================================
+           KETUA
+        ========================================================= */
+
+        .tree-root {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            width:
+                100%;
+
+            margin-bottom:
+                34px;
+
+        }
+
+
+        /* =========================================================
+           ROOT CARD
         ========================================================= */
 
         .tree-root .tree-node {
+
             width:
-                270px;
+                286px;
 
             min-width:
-                270px;
+                286px;
+
+            height:
+                278px;
+
+            background:
+                #ffffff;
 
             border:
-                2px solid
-                rgba(79, 70, 229, .16);
+                1px solid #dedede;
+
+            border-radius:
+                12px;
 
             box-shadow:
-                0 18px 50px
-                rgba(79, 70, 229, .13);
-        }
+                0 3px 10px rgba(15,23,42,.045);
 
-        .tree-root .tree-node::before {
-            height:
-                5px;
+            display:
+                flex;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--primary-dark),
-                    var(--primary),
-                    #818cf8
-                );
-        }
+            flex-direction:
+                column;
 
-        .tree-root .tree-photo,
-        .tree-root .tree-photo-placeholder {
-            height:
-                230px;
-        }
+            align-items:
+                center;
 
-        .tree-root .node-content {
             padding:
-                18px 16px 20px;
+                22px 20px 18px;
+
+            transition:
+                .25s ease;
+
         }
 
-        .tree-root .node-position {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    #6366f1
-                );
 
-            color:
-                white;
+        .tree-root .tree-node:hover {
+
+            transform:
+                translateY(-3px);
 
             box-shadow:
-                0 5px 15px
-                rgba(79, 70, 229, .20);
-        }
+                0 8px 25px rgba(15,23,42,.08);
 
-        .tree-root .node-name {
-            font-size:
-                21px;
-
-            letter-spacing:
-                -.3px;
-        }
-
-        .tree-root .node-description {
-            font-size:
-                11px;
         }
 
 
         /* =========================================================
-           EMPTY STATE
+           ROOT PHOTO
         ========================================================= */
 
-        .empty-state {
-            max-width:
-                520px;
+        .tree-root .tree-photo,
+        .tree-root .tree-photo-placeholder {
 
-            margin:
-                30px auto;
-
-            padding:
-                45px 30px;
-
-            background:
-                rgba(255,255,255,.9);
-
-            border:
-                1px solid #e2e8f0;
-
-            border-radius:
-                22px;
-
-            text-align:
-                center;
-
-            box-shadow:
-                0 15px 35px
-                rgba(15,23,42,.05);
-        }
-
-        .empty-state-icon {
             width:
-                65px;
+                128px;
 
             height:
-                65px;
+                128px;
 
-            margin:
-                0 auto 18px;
+            border-radius:
+                50%;
+
+            object-fit:
+                cover;
+
+            flex-shrink:
+                0;
+
+        }
+
+
+        .tree-root .tree-photo-placeholder {
 
             display:
                 flex;
@@ -812,36 +474,420 @@
             justify-content:
                 center;
 
-            border-radius:
-                18px;
-
             background:
-                var(--primary-soft);
+                #e2e8f0;
 
             color:
-                var(--primary);
+                #94a3b8;
 
             font-size:
-                28px;
+                48px;
+
         }
 
-        .empty-state h4 {
+
+        /* =========================================================
+           ROOT CONTENT
+        ========================================================= */
+
+        .tree-root .node-content {
+
+            text-align:
+                center;
+
+            padding:
+                13px 0 0;
+
+        }
+
+
+        .tree-root .node-position {
+
             margin-bottom:
-                7px;
+                8px;
+
+            color:
+                #64748b;
+
+            font-size:
+                11px;
 
             font-weight:
-                800;
+                700;
+
+            letter-spacing:
+                .2px;
+
+            text-transform:
+                uppercase;
+
         }
 
-        .empty-state p {
+
+        .tree-root .node-name {
+
             margin:
                 0;
 
             color:
-                var(--muted);
+                #111827;
+
+            font-size:
+                16px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .tree-root .node-description {
+
+            display:
+                none;
+
+        }
+
+
+        /* =========================================================
+           CHILDREN
+        ========================================================= */
+
+        .children-wrapper {
+
+            width:
+                100%;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+        }
+
+
+        .tree-level {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                flex-start;
+
+            gap:
+                18px;
+
+            width:
+                max-content;
+
+            margin:
+                0 auto;
+
+        }
+
+
+        /* =========================================================
+           CHILD CARD
+        ========================================================= */
+
+        .child-item {
+
+            width:
+                173px;
+
+            min-width:
+                173px;
+
+        }
+
+
+        .child-item .tree-node {
+
+            width:
+                173px;
+
+            min-width:
+                173px;
+
+            height:
+                252px;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #dedede;
+
+            border-radius:
+                11px;
+
+            box-shadow:
+                0 3px 9px rgba(15,23,42,.04);
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            align-items:
+                center;
+
+            padding:
+                20px 12px 15px;
+
+            transition:
+                .25s ease;
+
+        }
+
+
+        .child-item .tree-node:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(15,23,42,.08);
+
+            border-color:
+                #d8dce5;
+
+        }
+
+
+        /* =========================================================
+           CHILD PHOTO
+        ========================================================= */
+
+        .child-item .tree-photo,
+        .child-item .tree-photo-placeholder {
+
+            width:
+                105px;
+
+            height:
+                105px;
+
+            border-radius:
+                50%;
+
+            object-fit:
+                cover;
+
+            flex-shrink:
+                0;
+
+        }
+
+
+        .child-item .tree-photo-placeholder {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #e2e8f0;
+
+            color:
+                #94a3b8;
+
+            font-size:
+                38px;
+
+        }
+
+
+        /* =========================================================
+           CHILD CONTENT
+        ========================================================= */
+
+        .child-item .node-content {
+
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            padding:
+                14px 3px 0;
+
+        }
+
+
+        .child-item .node-position {
+
+            margin-bottom:
+                8px;
+
+            color:
+                #64748b;
+
+            font-size:
+                9px;
+
+            font-weight:
+                600;
+
+            line-height:
+                1.35;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .child-item .node-name {
+
+            margin:
+                0;
+
+            color:
+                #111827;
 
             font-size:
                 13px;
+
+            font-weight:
+                700;
+
+            line-height:
+                1.35;
+
+        }
+
+
+        .child-item .node-description {
+
+            display:
+                none;
+
+        }
+
+
+        /* =========================================================
+           REMOVE ALL CONNECTING LINES
+        ========================================================= */
+
+        .tree-root::after,
+        .children-wrapper::before,
+        .child-item::before,
+        .child-item::after {
+
+            display:
+                none !important;
+
+            content:
+                none !important;
+
+        }
+
+
+        /* =========================================================
+           EMPTY STATE
+        ========================================================= */
+
+        .empty-state {
+
+            width:
+                min(500px, 100%);
+
+            margin:
+                50px auto;
+
+            padding:
+                40px 30px;
+
+            text-align:
+                center;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius:
+                15px;
+
+            box-shadow:
+                0 5px 20px rgba(15,23,42,.04);
+
+        }
+
+
+        .empty-state-icon {
+
+            width:
+                60px;
+
+            height:
+                60px;
+
+            margin:
+                0 auto 15px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #eef2ff;
+
+            color:
+                #4f46e5;
+
+            border-radius:
+                15px;
+
+            font-size:
+                25px;
+
+        }
+
+
+        .empty-state h4 {
+
+            margin:
+                0 0 7px;
+
+            font-size:
+                18px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .empty-state p {
+
+            margin:
+                0;
+
+            color:
+                #94a3b8;
+
+            font-size:
+                12px;
+
         }
 
 
@@ -849,67 +895,35 @@
            TABLET
         ========================================================= */
 
-        @media (max-width: 1150px) {
+        @media (max-width: 900px) {
 
-            .tree-level {
-                grid-template-columns:
-                    repeat(3, 230px);
+            .organization-tree {
 
-                column-gap:
-                    30px;
+                justify-content:
+                    flex-start;
+
+                padding-left:
+                    20px;
+
+                padding-right:
+                    20px;
+
             }
 
-            .children-wrapper.multiple::before {
-                left:
-                    calc(
-                        16.66% + 35px
-                    );
-
-                right:
-                    calc(
-                        16.66% + 35px
-                    );
-            }
-        }
-
-
-        /* =========================================================
-           TABLET SMALL
-        ========================================================= */
-
-        @media (max-width: 850px) {
-
-            .structure-section {
-                padding-top:
-                    125px;
-            }
-
-            .tree-level {
-                grid-template-columns:
-                    repeat(2, 220px);
-
-                column-gap:
-                    30px;
-
-                row-gap:
-                    75px;
-            }
-
-            .children-wrapper.multiple::before {
-                left:
-                    25%;
-
-                right:
-                    25%;
-            }
-
-            .tree-node {
-                width:
-                    220px;
+            .organization-content {
 
                 min-width:
-                    220px;
+                    100%;
+
             }
+
+            .tree-level {
+
+                gap:
+                    15px;
+
+            }
+
         }
 
 
@@ -920,188 +934,116 @@
         @media (max-width: 600px) {
 
             .structure-section {
+
                 padding-top:
-                    105px;
+                    90px;
 
                 padding-bottom:
-                    60px;
+                    50px;
+
             }
+
 
             .section-title {
-                font-size:
-                    2.05rem;
 
-                letter-spacing:
-                    -.7px;
+                font-size:
+                    30px;
+
             }
+
 
             .section-description {
+
                 padding:
-                    0 10px;
+                    0 15px;
 
                 font-size:
-                    13px;
+                    12px;
+
             }
 
-            .organization-wrapper {
-                margin-top:
-                    45px;
-            }
 
             .organization-tree {
+
+                margin-top:
+                    40px;
+
                 padding:
-                    20px 15px 90px;
+                    10px 15px 40px;
+
             }
 
-            .tree-root {
-                margin-bottom:
-                    75px;
-            }
-
-            .tree-root::after {
-                bottom:
-                    -75px;
-
-                height:
-                    75px;
-            }
 
             .tree-root .tree-node {
+
                 width:
-                    220px;
+                    250px;
 
                 min-width:
-                    220px;
+                    250px;
+
+                height:
+                    255px;
+
             }
+
 
             .tree-root .tree-photo,
             .tree-root .tree-photo-placeholder {
+
+                width:
+                    110px;
+
                 height:
-                    200px;
+                    110px;
+
             }
+
 
             .tree-level {
-                min-width:
-                    455px;
 
-                grid-template-columns:
-                    repeat(2, 210px);
+                gap:
+                    14px;
 
-                column-gap:
-                    25px;
-
-                row-gap:
-                    65px;
-
-                padding-top:
-                    50px;
             }
 
-            .tree-node {
+
+            .child-item,
+            .child-item .tree-node {
+
                 width:
-                    210px;
-
-                min-width:
-                    210px;
-            }
-
-            .tree-photo,
-            .tree-photo-placeholder {
-                height:
-                    175px;
-            }
-
-            .children-wrapper.multiple::before {
-                left:
-                    25%;
-
-                right:
-                    25%;
-            }
-
-            .child-item::before {
-                height:
-                    50px;
-
-                top:
-                    -50px;
-            }
-
-            .child-item::after {
-                top:
-                    -54px;
-            }
-        }
-
-
-        /* =========================================================
-           VERY SMALL MOBILE
-        ========================================================= */
-
-        @media (max-width: 400px) {
-
-            .section-title {
-                font-size:
-                    1.85rem;
-            }
-
-            .section-label {
-                font-size:
-                    9px;
-
-                padding:
-                    7px 12px;
-            }
-
-            .tree-root .tree-node {
-                width:
-                    205px;
-
-                min-width:
-                    205px;
-            }
-
-            .tree-root .tree-photo,
-            .tree-root .tree-photo-placeholder {
-                height:
-                    185px;
-            }
-
-            .tree-level {
-                min-width:
-                    425px;
-
-                grid-template-columns:
-                    repeat(2, 195px);
-
-                column-gap:
-                    20px;
-            }
-
-            .tree-node {
-                width:
-                    195px;
-
-                min-width:
-                    195px;
-            }
-
-            .tree-photo,
-            .tree-photo-placeholder {
-                height:
                     160px;
+
+                min-width:
+                    160px;
+
             }
 
-            .node-name {
-                font-size:
-                    15px;
+
+            .child-item .tree-node {
+
+                height:
+                    230px;
+
+                padding:
+                    18px 10px;
+
             }
 
-            .node-position {
-                font-size:
-                    8px;
+
+            .child-item .tree-photo,
+            .child-item .tree-photo-placeholder {
+
+                width:
+                    95px;
+
+                height:
+                    95px;
+
             }
+
         }
+
 
     </style>
 
@@ -1111,20 +1053,21 @@
 <body>
 
 
-{{-- =============================================================
+{{-- =========================================================
      NAVBAR
-============================================================= --}}
+========================================================= --}}
 
 <nav class="navbar navbar-expand-lg navbar-public fixed-top">
 
     <div class="container py-2">
+
 
         <a
             class="navbar-brand d-flex align-items-center gap-2"
             href="{{ route('welcome') }}"
         >
 
-            <i class="bi bi-mosque fs-4"></i>
+            <i class="bi bi-mosque fs-5"></i>
 
             {{ $settings['nama_masjid'] ?? 'Masjid Nabawi' }}
 
@@ -1136,9 +1079,6 @@
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarPublic"
-            aria-controls="navbarPublic"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
         >
 
             <i class="bi bi-list fs-2"></i>
@@ -1151,7 +1091,9 @@
             id="navbarPublic"
         >
 
-            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <ul
+                class="navbar-nav ms-auto align-items-lg-center gap-lg-1"
+            >
 
                 <li class="nav-item">
 
@@ -1210,13 +1152,14 @@
 
 
 
-{{-- =============================================================
-     MAIN CONTENT
-============================================================= --}}
+{{-- =========================================================
+     CONTENT
+========================================================= --}}
 
 <section class="structure-section">
 
     <div class="container">
+
 
         {{-- =====================================================
              HEADER
@@ -1228,7 +1171,7 @@
 
                 <i class="bi bi-diagram-3-fill"></i>
 
-                Pengurus Masjid
+                Struktur Pengurus
 
             </span>
 
@@ -1258,19 +1201,21 @@
              ORGANIZATION TREE
         ====================================================== --}}
 
-        <div class="organization-wrapper">
+        <div class="organization-tree">
 
-            <div class="organization-tree">
+            <div class="organization-content">
 
                 @forelse($strukturs as $root)
 
+
                     {{-- =================================================
-                         ROOT / KETUA
+                         KETUA / ROOT
                     ================================================== --}}
 
                     <div class="tree-root">
 
                         <div class="tree-node">
+
 
                             @if($root->foto)
 
@@ -1278,7 +1223,6 @@
                                     src="{{ asset('storage/' . $root->foto) }}"
                                     class="tree-photo"
                                     alt="{{ $root->nama }}"
-                                    loading="lazy"
                                 >
 
                             @else
@@ -1294,9 +1238,8 @@
 
                             <div class="node-content">
 
-                                <div class="node-position">
 
-                                    <i class="bi bi-award-fill"></i>
+                                <div class="node-position">
 
                                     {{ $root->jabatan }}
 
@@ -1320,6 +1263,7 @@
 
                                 @endif
 
+
                             </div>
 
                         </div>
@@ -1334,15 +1278,21 @@
 
                     @if($root->childrenRecursive->count())
 
-                        <div class="children-wrapper multiple">
+
+                        <div class="children-wrapper">
+
 
                             <div class="tree-level">
 
+
                                 @foreach($root->childrenRecursive as $child)
+
 
                                     <div class="child-item">
 
+
                                         <div class="tree-node">
+
 
                                             @if($child->foto)
 
@@ -1366,9 +1316,8 @@
 
                                             <div class="node-content">
 
-                                                <div class="node-position">
 
-                                                    <i class="bi bi-person-badge"></i>
+                                                <div class="node-position">
 
                                                     {{ $child->jabatan }}
 
@@ -1392,21 +1341,29 @@
 
                                                 @endif
 
+
                                             </div>
 
                                         </div>
 
+
                                     </div>
+
 
                                 @endforeach
 
+
                             </div>
+
 
                         </div>
 
+
                     @endif
 
+
                 @empty
+
 
                     {{-- =================================================
                          EMPTY STATE
@@ -1414,17 +1371,20 @@
 
                     <div class="empty-state">
 
+
                         <div class="empty-state-icon">
 
                             <i class="bi bi-diagram-3"></i>
 
                         </div>
 
+
                         <h4>
 
                             Belum Ada Struktur Pengurus
 
                         </h4>
+
 
                         <p>
 
@@ -1433,13 +1393,17 @@
 
                         </p>
 
+
                     </div>
 
+
                 @endforelse
+
 
             </div>
 
         </div>
+
 
     </div>
 
@@ -1447,9 +1411,9 @@
 
 
 
-{{-- =============================================================
+{{-- =========================================================
      BOOTSTRAP JS
-============================================================= --}}
+========================================================= --}}
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
