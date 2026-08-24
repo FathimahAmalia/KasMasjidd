@@ -619,6 +619,13 @@
                     <span>Kelola Kegiatan</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('strukturs*') ? 'active' : '' }}" href="{{ route('admin.struktur.index') }}">
+                    <i class="bi bi-images"></i>
+                    <span>Manajmen Struktur</span>
+                </a>
+            </li>
+
 
             <li class="nav-title">Lainnya</li>
 

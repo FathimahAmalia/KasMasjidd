@@ -8,6 +8,8 @@ use App\Http\Controllers\RekapKasController;
 use App\Http\Controllers\RekapKasSosialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StrukturController;
+use App\Http\Controllers\Admin\StrukturController as AdminStrukturController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -163,6 +165,30 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+// ======================================================
+// STRUKTUR MASJID - PUBLIC / USER
+// ======================================================
+Route::get('/struktur', [AdminStrukturController::class, 'publicIndex'])
+    ->name('struktur.index');
+
+// ======================================================
+// STRUKTUR MASJID - ADMIN
+// ======================================================
+Route::prefix('admin')
+    ->name('admin.')
+    ->middleware(['auth'])
+    ->group(function () {
+
+        Route::resource('struktur', AdminStrukturController::class)
+            ->except(['show']);
+
+    });
 
 // Temporary Debug Route
 Route::get('/debug-storage', function () {
