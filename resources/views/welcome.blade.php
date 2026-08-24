@@ -235,6 +235,8 @@
                 <ul class="navbar-nav ms-auto align-items-center gap-2">
                     <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('informasi.index') }}">Informasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Struktur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Galeri</a>
                     <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
                     @guest
 
